@@ -2,13 +2,9 @@
 
 Turn messy customer documents into validated, reviewable structured data.
 
-`docpipe` reads documents (invoices in the sample data), extracts the key fields, validates them, scores
+`docpipe` reads documents, extracts the key fields, validates them, scores
 its own confidence, and routes anything doubtful to a human review queue. Results land in SQLite and
 export to CSV. It ships with an eval harness so you can measure accuracy instead of guessing.
-
-This is the kind of problem a forward deployed engineer gets handed on day one: a customer with a
-manual, error-prone workflow and no appetite for a rewrite. The repo is a small, tested starting point for
-that engagement.
 
 ## Quickstart
 
@@ -74,8 +70,6 @@ docpipe ingest data/sample_invoices --extractor llm
 docpipe eval data/sample_invoices data/labels.json --extractor llm
 ```
 
-The model name is configuration, not code, so you can swap models and re-run the eval to compare them.
-Tests use a fake client and run fully offline.
 
 
 ## Project layout
@@ -87,14 +81,6 @@ data/            sample invoices and labels for the eval harness
 docs/            discovery, scope and handoff templates
 .github/         CI: lint, tests on Python 3.10-3.13, accuracy gate
 ```
-
-## Roadmap ideas
-
-- PDF and image input (OCR) alongside plain text
-- Line-item extraction and checks that line items add up to the total
-- Per-vendor extraction rules and a feedback loop from corrected review items
-- Web UI for the review queue
-- Scheduled ingestion from an email inbox or shared folder
 
 ## License
 
