@@ -32,7 +32,7 @@ Example output:
 warning: possible duplicate ACME Industrial Supplies #INV-1001: inv_001.txt, inv_005_resend.txt
 ```
 
-## How it works
+How it works
 
 ```
 documents (.txt)
@@ -54,13 +54,13 @@ Design choices worth knowing:
 
 - **A bad document never stops the batch.** Extraction errors are recorded as issues and the file goes to
   review. Configuration errors (like a missing model name) do stop the run, because they affect every file.
-- **Re-running is safe.** Ingestion upserts by file name, so you can run it again after fixing the extractor.
+- **Re-running is safe.** Ingestion upsets by file name, so you can run it again after fixing the extractor.
 - **Humans stay in the loop.** Low confidence is a feature: the pipeline says "look at this" instead of
   silently writing a wrong number into the client's books.
 - **Accuracy is measured.** `docpipe eval` compares output with hand-labelled documents, and CI fails if
   accuracy drops.
 
-## LLM extractor (optional)
+## LLM extractor
 
 ```bash
 pip install -e ".[llm]"
