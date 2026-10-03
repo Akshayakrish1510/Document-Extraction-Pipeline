@@ -12,11 +12,11 @@ export to CSV. It ships with an eval harness so you can measure accuracy instead
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
 
-docpipe ingest data/sample_invoices      # extract, validate, store
-docpipe review                           # what needs a human?
-docpipe export results.csv               # hand results to the client
-docpipe eval data/sample_invoices data/labels.json   # measure accuracy
-pytest                                   # run the tests
+docpipe ingest data/sample_invoices     
+docpipe review                           
+docpipe export results.csv              
+docpipe eval data/sample_invoices data/labels.json   
+pytest                                 
 ```
 
 Example output:
@@ -64,8 +64,8 @@ Design choices worth knowing:
 
 ```bash
 pip install -e ".[llm]"
-export ANTHROPIC_API_KEY=...        # your API key
-export DOCPIPE_LLM_MODEL=...        # a model name from the provider's documentation
+export ANTHROPIC_API_KEY=...       
+export DOCPIPE_LLM_MODEL=...        
 docpipe ingest data/sample_invoices --extractor llm
 docpipe eval data/sample_invoices data/labels.json --extractor llm
 ```
