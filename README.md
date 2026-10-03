@@ -1,4 +1,4 @@
-# docpipe
+# document extraction pipeline
 
 Turn messy customer documents into validated, reviewable structured data.
 
